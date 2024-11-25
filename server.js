@@ -1,10 +1,11 @@
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
+const fetchRouter = require('./api/fetch/index')
+
 
 require('dotenv').config()
 
-const fetchRouter = require('./api/fetch')
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use(express.json())
 app.use(express.static('public'))
 
 app.use('/api/fetch', fetchRouter)
+
 
 const PORT = process.env.PORT || 3000
 

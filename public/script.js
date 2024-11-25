@@ -68,7 +68,7 @@ async function scrapeUrl() {
     resultElement.textContent = 'Loading...'
 
     const encodedUrl = encodeURIComponent(urlInput.value)
-    const endpoint = `/api/fetch/${dataType.value === 'all' ? '' : dataType.value + '/'}${encodedUrl}`
+    const endpoint = `/api/fetch?url=${encodedUrl}`
 
     const response = await fetch(endpoint)
 
