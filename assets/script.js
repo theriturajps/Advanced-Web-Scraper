@@ -68,7 +68,9 @@ async function scrapeUrl() {
     resultElement.textContent = 'Loading...'
 
     const encodedUrl = encodeURIComponent(urlInput.value)
-    const endpoint = `/api/fetch?url=${encodedUrl}`
+    const endpoint = `/api/fetch/${
+      dataType.value === 'all' ? '' : dataType.value + '/'
+    }${encodedUrl}`
 
     const response = await fetch(endpoint)
 
@@ -90,7 +92,9 @@ async function scrapeUrl() {
 
 function showNotification(message, type) {
   const notification = document.createElement('div')
-  notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg text-white font-medium transform transition-all duration-300 ${type === 'error' ? 'bg-red-500' : 'bg-green-500'}`
+  notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg text-white font-medium transform transition-all duration-300 ${
+    type === 'error' ? 'bg-red-500' : 'bg-green-500'
+  }`
   notification.textContent = message
   document.body.appendChild(notification)
 
