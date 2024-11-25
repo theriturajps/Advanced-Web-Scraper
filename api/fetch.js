@@ -1,6 +1,7 @@
 // api/fetch.js
 const express = require('express')
 const router = express.Router()
+const fetch = require('node-fetch')
 
 // Helper function to fetch URL content
 const fetchContent = async (url) => {
