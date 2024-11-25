@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Professional web scraper with multiple design themes - extract data, images, and metadata from any website">
+	<meta name="keywords" content="web scraper, data extraction, website analyzer, metadata scraper">
+	<meta name="author" content="Your Name">
+	<title>Advanced Web Scraper - Multiple Themes</title>
+	
+	<link rel="stylesheet" href="./styles.css">
+
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" as="style">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+
+	<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🔍</text></svg>">
+</head>
+
+<body class="bg-gray-50">
+	<!-- Hero Section with Gradient -->
+	<div class="gradient-bg text-white py-8">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center">
+				<h1 class="text-4xl font-extrabold mb-4">Web Scraper</h1>
+				<p class="text-lg opacity-90">Extract data from any website in seconds</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="max-w-4xl mx-auto -mt-8 px-4 sm:px-6 lg:px-8">
+		<!-- Main Card -->
+		<div class="border-2 border-2 border-gray-200 glass-effect rounded-lg shadow-xl p-6 mb-8">
+			<!-- Simple Theme Selector -->
+			<div class="flex justify-end mb-6">
+				<select id="themeSelect"
+					class="bg-purple-500 text-white px-1 py-2 rounded-lg font-medium text-sm border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+					onchange="changeTheme(this.value)">
+					<option value="modern">Modern Purple</option>
+					<option value="ocean">Ocean Blue</option>
+					<option value="forest">Forest Green</option>
+					<option value="sunset">Sunset Orange</option>
+				</select>
+			</div>
+
+			<!-- URL Input Section -->
+			<div class="mb-8">
+				<div class="flex flex-col sm:flex-row gap-4">
+					<input type="url" id="urlInput" placeholder="Enter website URL (https://example.com)"
+						class="flex-1 px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all">
+					<button onclick="scrapeUrl()" id="scrapeButton"
+						class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-md hover:shadow-lg">
+						Scrape Data
+					</button>
+				</div>
+			</div>
+
+			<!-- Data Type Cards -->
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+				<label class="cursor-pointer">
+					<input type="radio" name="dataType" value="all" class="hidden" checked>
+					<div class="border-2 border-gray-200 rounded-lg p-4 hover:border-purple-500 transition-all data-type-card">
+						<div class="text-center">
+							<span class="block text-xl mb-2">🌐</span>
+							<span class="font-medium">All Data</span>
+						</div>
+					</div>
+				</label>
+				<label class="cursor-pointer">
+					<input type="radio" name="dataType" value="image" class="hidden">
+					<div class="border-2 border-gray-200 rounded-lg p-4 hover:border-purple-500 transition-all data-type-card">
+						<div class="text-center">
+							<span class="block text-xl mb-2">🖼️</span>
+							<span class="font-medium">Images</span>
+						</div>
+					</div>
+				</label>
+				<label class="cursor-pointer">
+					<input type="radio" name="dataType" value="metadata" class="hidden">
+					<div class="border-2 border-gray-200 rounded-lg p-4 hover:border-purple-500 transition-all data-type-card">
+						<div class="text-center">
+							<span class="block text-xl mb-2">📋</span>
+							<span class="font-medium">Metadata</span>
+						</div>
+					</div>
+				</label>
+				<label class="cursor-pointer">
+					<input type="radio" name="dataType" value="social" class="hidden">
+					<div class="border-2 border-gray-200 rounded-lg p-4 hover:border-purple-500 transition-all data-type-card">
+						<div class="text-center">
+							<span class="block text-xl mb-2">🔗</span>
+							<span class="font-medium">Social Data</span>
+						</div>
+					</div>
+				</label>
+			</div>
+
+			<!-- Results Section -->
+			<div class="bg-white rounded-lg border-2 border-gray-100 p-4">
+				<div class="flex justify-between items-center mb-4">
+					<h2 class="text-lg font-semibold text-gray-700">Results</h2>
+					<button onclick="copyResults()" class="text-sm text-purple-600 hover:text-purple-700 font-medium">
+						Copy Results
+					</button>
+				</div>
+				<pre id="result"
+					class="text-sm text-gray-600 whitespace-pre-wrap bg-gray-50 p-4 rounded-md">Results will appear here...</pre>
+			</div>
+		</div>
+	</div>
+
+	<script src="./script.js"></script>
+</body>
+
+</html>
